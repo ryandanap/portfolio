@@ -337,7 +337,7 @@ window.addEventListener("load", () => {
 
 // EmailJS
 document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault(); // Mencegah reload halaman
+  e.preventDefault(); 
 
   emailjs.sendForm("service_6j826wr", "template_3hczup8", this).then(
     function () {
