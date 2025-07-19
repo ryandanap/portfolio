@@ -397,7 +397,7 @@ header.scrolled {
 .about-image {
   position: relative;
   border-radius: 10px;
-  overflow: visible; /* Changed from hidden to visible */
+  overflow: visible;
   box-shadow: var(--shadow);
   margin-bottom: 2rem;
   width: 70%;

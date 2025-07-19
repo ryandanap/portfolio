@@ -265,7 +265,7 @@ progressBars.forEach((bar) => {
     { width: "0%" },
     {
       width: width,
-      duration: 0.5,
+      duration: 1.2,
       ease: "power2.out",
       scrollTrigger: {
         trigger: bar,
