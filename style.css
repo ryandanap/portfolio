@@ -264,6 +264,11 @@ header.scrolled {
   opacity: 0;
   transform: translateY(20px);
   color: var(--text-primary);
+  display: grid !important;
+  grid-template-columns: min-content 350px;
+  gap: 6px; /* Jarak antara huruf "I" dengan teks animasi */
+  line-height: 1.6;
+  align-items: flex-start;
 }
 
 .hero-cta {
@@ -272,14 +277,26 @@ header.scrolled {
 }
 
 /* New animated text styles */
+.static-text {
+    grid-column: 0;
+}
+
 .animated-text-container {
-  display: inline-block;
+  grid-column: 2; /* Tetap di kolom kanan */
+  display: block; /* Biarkan dia jadi aliran teks biasa */
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal !important;
   position: relative;
+  min-width: 250px;
+  flex-grow: 1;
   min-height: 1.6em;
 }
 
 .animated-text {
-  display: inline-block;
+  display: inline; /* Penting: harus inline agar bisa wrap per kata */
+
   color: var(--text-primary); /* Changed to white (text-primary) */
   font-weight: 500;
 }
@@ -460,12 +477,15 @@ header.scrolled {
 }
 
 .skills-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;       /* Supaya card bisa turun ke bawah */
+  justify-content: center; /* KUNCI: Menengahkan item di baris terakhir */
   gap: 2rem;
+  width: 100%;
 }
 
 .skill-card {
+  width: 250px; 
   background: var(--card-bg);
   border-radius: 10px;
   padding: 2rem;
@@ -509,12 +529,25 @@ header.scrolled {
 
 /* Projects Section */
 .projects-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Menengahkan baris terakhir */
   gap: 2rem;
+  width: 100%;
 }
 
 .project-card {
+  /* Atur lebar card kamu */
+  flex: 0 1 350px; 
+  
+  /* Supaya tinggi semua card seragam di baris yang sama */
+  display: flex;
+  flex-direction: column;
+  
+  /* Berikan tinggi minimal yang cukup tinggi agar card seragam */
+  /* Kamu bisa sesuaikan angka ini sesuai kebutuhan konten terpanjangmu */
+  min-height: 580px;
+  
   background: var(--card-bg);
   border-radius: 10px;
   overflow: hidden;
@@ -771,6 +804,29 @@ footer {
   section {
     padding: 4rem 0;
   }
+
+  .hero {
+    display: flex;
+    align-items: center; /* Ini untuk tengah secara vertikal (oke) */
+    justify-content: flex-start; /* KUNCI: Jangan pakai 'center' jika teksnya dinamis */
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .hero-description {
+    /* Di HP, biarkan kolom kedua selebar layar sisa */
+    grid-template-columns: min-content 1fr;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-cta {
+    display: flex;       /* WAJIB agar gap berfungsi */
+    gap: 0.3rem;           /* Jarak antar tombol (sekitar 16px) */
+    flex-wrap: wrap;     /* Agar tombol aman saat di layar HP yang sangat kecil */
+    margin-top: 1rem;
+  }
+  
 
   .nav-links {
     position: fixed;
