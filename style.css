@@ -809,8 +809,8 @@ footer {
     display: flex;
     align-items: center; /* Ini untuk tengah secara vertikal (oke) */
     justify-content: flex-start; /* KUNCI: Jangan pakai 'center' jika teksnya dinamis */
-    margin-left: 5%;
-    margin-right: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
   .hero-description {
